@@ -11,7 +11,6 @@
   lib,
   nixosTests,
   enableLocalIcons ? false,
-  nix-update-script,
 }:
 let
   dashboardIcons = fetchFromGitHub {
@@ -96,7 +95,7 @@ stdenv.mkDerivation (finalAttrs: {
     tests = {
       inherit (nixosTests) homepage-dashboard;
     };
-    updateScript = nix-update-script { };
+    updateScript = ./update.sh;
   };
 
   meta = {
